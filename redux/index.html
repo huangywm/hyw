@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script type="text/javascript">
+    	
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+   			
+   			//区域---在我们程序运行的时候，java+ios将桥接js注入到plusready方法里面
+   		});
+   		
+   		
+    </script>
+</head>
+<body>
+	<button class='btn'>点击拍照</button>
+</body>
+<script>
+	//control rem
+	document.documentElement.style.fontSize=
+	document.documentElement.clientWidth/6.4+'px';
+	window.addEventListener('resize',function(){
+		document.documentElement.style.fontSize=
+		document.documentElement.clientWidth/6.4+'px';
+	})
+	
+	//调用原生api
+   		var _btn=document.getElementsByClassName('btn')[0];
+   		_btn.addEventListener('touchend',function(){
+   			//调用拍照接口    www.dcloud.io
+   			//1.获取plus对象
+   			//2.通过plus得到camera模块
+   			var _camera=plus.camera;
+   			//3.通过getCamera获取摄像头管理对象.captureImage()实现拍照
+   			//captureImage(success fn,error fn)
+   			//拍照成功的时候，回调函数会返回一个地址
+   			//拍照失败，会返回失败信息
+   			_camera.getCamera().captureImage(
+   				function(path){
+   					alert('拍照成功');
+   					alert('拍照地址是'+path);
+   				},
+   				function(){
+   					alert('用户拍照失败')
+   				}
+   			);
+   		})
+   		//调用原生api
+   		var _btn=document.getElementsByClassName('btn')[0];
+   		_btn.addEventListener('touchend',function(){
+   			//调用拍照接口    www.dcloud.io
+   			//1.获取plus对象
+   			//2.通过plus得到camera模块
+   			var _camera=plus.camera;
+   			//3.通过getCamera获取摄像头管理对象.captureImage()实现拍照
+   			//captureImage(success fn,error fn)
+   			//拍照成功的时候，回调函数会返回一个地址
+   			//拍照失败，会返回失败信息
+   			_camera.getCamera().captureImage(
+   				function(path){
+   					alert('拍照成功');
+   					alert('拍照地址是'+path);
+   				},
+   				function(){
+   					alert('用户拍照失败')
+   				}
+   			);
+   		})
+   		
+</script>
+</html>
