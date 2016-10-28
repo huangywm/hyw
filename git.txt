@@ -1,2 +1,7 @@
 »ЖСеОД
+<<<<<<< HEAD
 huangyanwe
+=======
+nihoa
+>>>>>>> file
+mashixuan
